@@ -1,7 +1,7 @@
 import numpy
 import matplotlib.pyplot as plt
 
-def Paycheck(Pay):
+def Paychecks(Pay):
 
   fig = plt.figure(figsize=(8,8),dpi=100)
 
