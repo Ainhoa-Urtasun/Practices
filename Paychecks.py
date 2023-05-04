@@ -17,5 +17,5 @@ def Paychecks(Pay):
 
   plt.xlabel('Employees',fontsize=16)
   plt.title('Paychecks',fontsize=16)
-  plt.legend(ncols=2,loc='center',fontsize=10)
+  plt.legend(ncols=2,loc='center',fontsize='small')
   plt.show()
