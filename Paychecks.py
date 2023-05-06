@@ -16,6 +16,6 @@ def Paychecks(Pay):
     bottom += [Pay[i][0],Pay[i][1],Pay[i][2]]
 
   plt.xlabel('Employees',fontsize=16)
-  plt.title('Paychecks',fontsize=16)
+  plt.title('Paychecks ($ per hour worked)',fontsize=16)
   plt.legend(bbox_to_anchor=(1.04,1),borderaxespad=0,fontsize='x-small')
   plt.show()
