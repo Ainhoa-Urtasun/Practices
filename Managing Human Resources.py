@@ -17,12 +17,12 @@ def ManagingHumanResources(giftexchangegame):
   plt.subplot(G[2,1],facecolor='white')
   plt.xticks([])
   plt.yticks([])
-  plt.text(0.5,0.5,Decisions['Employer'][0],ha='center',va='center',size=12)
+  plt.text(0.5,0.5,giftexchangegame['Employer'][0],ha='center',va='center',size=12)
 
   plt.subplot(G[3,1],facecolor='white')
   plt.xticks([])
   plt.yticks([])
-  plt.text(0.5,0.5,Decisions['Employer'][1],ha='center',va='center',size=12)
+  plt.text(0.5,0.5,giftexchangegame['Employer'][1],ha='center',va='center',size=12)
   
   plt.subplot(G[0,2:4],facecolor='white')
   plt.xticks([])
@@ -42,6 +42,6 @@ def ManagingHumanResources(giftexchangegame):
   plt.subplot(G[4,:],facecolor='white')
   plt.xticks([])
   plt.yticks([])
-  plt.text(0.1,0.5,Decisions['How It Works'][0],ha='center',va='center',size=12)
+  plt.text(0.1,0.5,giftexchangegame['How It Works'][0],ha='center',va='center',size=12)
 
   plt.show()
