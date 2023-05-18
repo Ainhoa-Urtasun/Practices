@@ -2,7 +2,7 @@ import numpy
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
-def ManagingHumanResources(Decisions):
+def ManagingHumanResources(Gift-exchange game):
   fig = plt.figure(figsize=(20,5))
   heights = 5*[1]
   widths = 4*[1]
