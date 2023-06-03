@@ -37,7 +37,7 @@ def Practices(game):
   plt.subplot(G[1,3],facecolor='white')
   plt.xticks([])
   plt.yticks([])
-  plt.text(0.5,0.5,game[Employee][1],ha='center',va='center',size=12)
+  plt.text(0.5,0.5,game['Employee'][1],ha='center',va='center',size=12)
 
   plt.subplot(G[4,:],facecolor='white')
   plt.xticks([])
