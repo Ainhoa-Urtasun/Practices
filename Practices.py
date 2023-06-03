@@ -2,7 +2,7 @@ import numpy
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
-def Practice(game):
+def Practices(game):
   fig = plt.figure(figsize=(20,5))
   heights = 5*[1]
   widths = 4*[1]
