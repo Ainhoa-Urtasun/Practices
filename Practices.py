@@ -38,6 +38,16 @@ def Practices(game):
   plt.xticks([])
   plt.yticks([])
   plt.text(0.5,0.5,game['Employee'][1],ha='center',va='center',size=12)
+  
+  plt.subplot(G[3,3],facecolor='pink')
+  plt.xticks([])
+  plt.yticks([])
+  plt.text(0.5,0.5,game['Payoffs'][0],ha='center',va='center',size=12)
+  
+  plt.subplot(G[3,4],facecolor='pink')
+  plt.xticks([])
+  plt.yticks([])
+  plt.text(0.5,0.5,game['Payoffs'][1],ha='center',va='center',size=12)
 
   plt.subplot(G[4,:],facecolor='white')
   plt.xticks([])
