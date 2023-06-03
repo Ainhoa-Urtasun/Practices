@@ -44,12 +44,12 @@ def Practices(game):
   plt.yticks([])
   plt.text(0.5,0.5,game['Payoffs'][0][0],ha='center',va='center',size=12)
   
-  plt.subplot(G[3,3],facecolor='white')
+  plt.subplot(G[2,3],facecolor='white')
   plt.xticks([])
   plt.yticks([])
   plt.text(0.5,0.5,game['Payoffs'][0][1],ha='center',va='center',size=12)
     
-  plt.subplot(G[2,2],facecolor='white')
+  plt.subplot(G[3,2],facecolor='white')
   plt.xticks([])
   plt.yticks([])
   plt.text(0.5,0.5,game['Payoffs'][1][0],ha='center',va='center',size=12)
