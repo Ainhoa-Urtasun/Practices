@@ -9,32 +9,32 @@ def Practices(game):
   
   G = gridspec.GridSpec(5,4,height_ratios=heights,width_ratios=widths,wspace=0,hspace=0)
   
-  plt.subplot(G[2:4,0],facecolor='lightblue')
+  plt.subplot(G[2:4,0],facecolor='tab:blue')
   plt.xticks([])
   plt.yticks([])
   plt.text(0.5,0.5,'Employer',ha='center',va='center',size=12)
 
-  plt.subplot(G[2,1],facecolor='blue')
+  plt.subplot(G[2,1],facecolor='lightblue')
   plt.xticks([])
   plt.yticks([])
   plt.text(0.5,0.5,game['Employer'][0],ha='center',va='center',size=12)
 
-  plt.subplot(G[3,1],facecolor='white')
+  plt.subplot(G[3,1],facecolor='lightblue')
   plt.xticks([])
   plt.yticks([])
   plt.text(0.5,0.5,game['Employer'][1],ha='center',va='center',size=12)
   
-  plt.subplot(G[0,2:4],facecolor='white')
+  plt.subplot(G[0,2:4],facecolor='tab:pink')
   plt.xticks([])
   plt.yticks([])
   plt.text(0.5,0.5,'Employee',ha='center',va='center',size=12)
 
-  plt.subplot(G[1,2],facecolor='white')
+  plt.subplot(G[1,2],facecolor='pink')
   plt.xticks([])
   plt.yticks([])
   plt.text(0.5,0.5,game['Employee'][0],ha='center',va='center',size=12)
 
-  plt.subplot(G[1,3],facecolor='white')
+  plt.subplot(G[1,3],facecolor='pink')
   plt.xticks([])
   plt.yticks([])
   plt.text(0.5,0.5,game['Employee'][1],ha='center',va='center',size=12)
