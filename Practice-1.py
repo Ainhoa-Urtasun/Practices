@@ -15,4 +15,3 @@ for num in data['size']:
 
 values = values.reindex(range(0,result),fill_value=0)
 values.index = pandas.MultiIndex.from_product(dimensions,names=data['id'])
-print(values.unstack('geo'))
