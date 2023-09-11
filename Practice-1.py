@@ -9,6 +9,7 @@ data = requests.get(url).json()
 
 dimensions = [pandas.DataFrame({key:val for key,val in data['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in data['id']]
 values = pandas.Series(data['value']).rename(index=int).sort_index()
+result = 1 # Initialize the result to 1
 for num in data['size']:
   result *= num
 
