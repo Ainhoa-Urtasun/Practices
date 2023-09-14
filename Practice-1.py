@@ -4,10 +4,11 @@ import pandas
 
 def statistics(id,country):
   fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
-  datasetCode = id
-  url = '{}{}'.format(fixed,datasetCode)
+  url = '{}{}'.format(fixed,id)
   data = requests.get(url).json()
-  v = pandas.Series(data['value']).rename(index=int).sort_index()
+  print(data)
+  df = pandas.Series(data['value']).rename(index=int).sort_index()
+  print(df)
   result = 1 # Initialize the result to 1
   for num in data['size']:
     result *= num
