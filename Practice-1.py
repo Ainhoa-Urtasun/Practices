@@ -7,6 +7,7 @@ def statistics(id):
   datasetCode = id
   url = '{}{}'.format(fixed,datasetCode)
   data = requests.get(url).json()
+  print(data)
 
   dimensions = [pandas.DataFrame({key:val for key,val in data['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in data['id']]
   values = pandas.Series(data['value']).rename(index=int).sort_index()
