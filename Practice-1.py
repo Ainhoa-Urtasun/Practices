@@ -1,4 +1,4 @@
-aimport requests
+import requests
 import json
 import pandas
 
