@@ -2,7 +2,7 @@ import requests
 import json
 import pandas
 
-def statistics(id):
+def statistics(id,country):
   fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
   datasetCode = id
   url = '{}{}'.format(fixed,datasetCode)
@@ -14,3 +14,4 @@ def statistics(id):
   v = v.reindex(range(0,result),fill_value=0)
   dimensions = [pandas.DataFrame({key:val for key,val in data['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in data['id']]
   v.index = pandas.MultiIndex.from_product(dimensions,names=data['id'])
+  v.unstack('geo')[[country]]
