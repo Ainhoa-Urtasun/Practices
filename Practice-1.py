@@ -6,12 +6,8 @@ def statistics(treelabel,country):
   fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
   url = '{}{}'.format(fixed,treelabel)
   metadata = requests.get(url).json()
-  print(metadata)
-  print(metadata['id'])
-  print(metadata['value'])
   data = pandas.Series(metadata['value']).rename(index=int).sort_index()
-  print(data)
-  result = 1 # Initialize the result to 1
+  n = 1 # Initialize the result to 1
   for num in metadata['size']:
     n *= num
   data = data.reindex(range(0,n),fill_value=0)
