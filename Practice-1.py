@@ -12,5 +12,5 @@ def statistics(treelabel,country):
     n *= num
   data = data.reindex(range(0,n),fill_value=0)
   structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
-  data.index = pandas.MultiIndex.from_product(dimensions,names=metadata['id'])
-  v.unstack('geo')[[country]]
+  data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
+  data.unstack('geo')[[country]]
