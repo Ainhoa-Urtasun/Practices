@@ -16,8 +16,8 @@ def statistics(treelabel,country,unit,Total):
   data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
   data = data.unstack(['geo'])[[country]].reset_index()
   data = data[data.unit==unit]
-  data = data[data.sex==Total]
   data['time'] = data['time'].astype(int)
   data = data[data.time>2009]
-  data = data[['age','time',country]]
+  data = data[(data.age=='From 15 to 24 years')|(data.age=='From 25 to 54 years')|(data.age=='From 55 to 64')]
+  data = data[['age','sex','time',country]]
   return data
