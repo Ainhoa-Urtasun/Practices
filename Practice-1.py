@@ -2,7 +2,7 @@ import requests
 import json
 import pandas
 
-def statistics(treelabel,country):
+def data(treelabel,country):
   fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
   url = '{}{}'.format(fixed,treelabel)
   metadata = requests.get(url).json()
