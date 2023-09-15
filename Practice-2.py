@@ -2,7 +2,7 @@ import requests
 import json
 import pandas
 
-def statistics(treelabel,country,unit):
+def statistics(treelabel,country,unit,Total):
   fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
   url = '{}{}'.format(fixed,treelabel)
   metadata = requests.get(url).json()
@@ -16,5 +16,6 @@ def statistics(treelabel,country,unit):
   data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
   data = data.unstack(['geo'])[[country]].reset_index()
   data = data[data.unit==unit]
-  data = data[['sex','age','time',country]]
+  data = data[data.sex==Total]
+  data = data[['age','time',country]]
   return data
