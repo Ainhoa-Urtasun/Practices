@@ -17,5 +17,6 @@ def statistics(treelabel,country,unit,Total):
   data = data.unstack(['geo'])[[country]].reset_index()
   data = data[data.unit==unit]
   data = data[data.sex==Total]
+  data = data[data.time>2009]
   data = data[['age','time',country]]
   return data
