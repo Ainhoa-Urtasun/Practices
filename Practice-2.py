@@ -18,6 +18,6 @@ def statistics(treelabel,country,unit):
   data = data[data.unit==unit]
   data['time'] = data['time'].astype(int)
   data = data[data.time>2009]
-  data = data[(data.age=='From 15 to 24 years')|(data.age=='From 25 to 54 years')|(data.age=='From 55 to 64')]
+  data = data[(data.age=='From 15 to 24 years')|(data.age=='From 25 to 54 years')|(data.age=='From 55 to 64 years')]
   data = data[['age','sex','time',country]]
   return data
