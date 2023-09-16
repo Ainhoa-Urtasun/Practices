@@ -14,4 +14,8 @@ def data(treelabel,country):
   data = data.reindex(range(0,n),fill_value=0)
   structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
   data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
-  return data.unstack('geo')[[country]]
+  data = data.reset_index()
+  data = data[data.geo=='Spain']
+  data = data[['age','sex','time','0']]
+  data.rename(columns={'0':'Percentage'},inplace=True)
+  return data
