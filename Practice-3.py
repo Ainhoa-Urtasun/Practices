@@ -19,6 +19,6 @@ def data(treelabel,industry,country1,country2,country3):
   data = data[(data.geo==country1)|(data.geo==country2)|(data.geo==country3)]
   data['time'] = data['time'].astype(int)
   data = data[data.time==2022]
-  data = data[['size_emp','nace_r2','geo','time',0]]
-  data.rename(columns={'size_emp':'size','nace_r2':'industry',0:'percentage of enterprises'},inplace=True)
+  data = data[['size_emp','nace_r2','geo','time','indic_is',0]]
+  data.rename(columns={'size_emp':'size','nace_r2':'industry','indic_is':'digital intensity',0:'percentage of enterprises'},inplace=True)
   return data
