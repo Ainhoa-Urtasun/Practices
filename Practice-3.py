@@ -15,8 +15,8 @@ def data(treelabel,country1,country2,unit):
   structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
   data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
   data = data.reset_index()
-  #data = data[(data.geo==country1)|(data.geo==country2)]
-  #data = data[data['indic_is']==unit]
-  #data['time'] = data['time'].astype(int)
-  #data = data[data.time==2022]
+  data = data[(data.geo==country1)|(data.geo==country2)]
+  data = data[data['indic_is']==unit]
+  data['time'] = data['time'].astype(int)
+  data = data[data.time==2022]
   return data
