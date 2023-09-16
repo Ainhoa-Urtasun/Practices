@@ -2,7 +2,7 @@ import requests
 import json
 import pandas
 
-def data(treelabel,industry,country1,country2,country3):
+def data(treelabel,industry,country1,country2):
   fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
   url = '{}{}'.format(fixed,treelabel)
   metadata = requests.get(url).json()
@@ -16,7 +16,7 @@ def data(treelabel,industry,country1,country2,country3):
   data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
   data = data.reset_index()
   data = data[data['nace_r2']==industry]
-  data = data[(data.geo==country1)|(data.geo==country2)|(data.geo==country3)]
+  data = data[(data.geo==country1)|(data.geo==country2)]
   data['time'] = data['time'].astype(int)
   data = data[data.time==2022]
   data = data[['size_emp','nace_r2','geo','time','indic_is',0]]
