@@ -17,5 +17,5 @@ def data(treelabel,country):
   data = data.reset_index()
   data = data[data.geo=='Spain']
   data = data[['age','sex','time',0]]
-  data.rename(columns={0:'Percentage'},inplace=True)
+  data.rename(columns={0:'percentage'},inplace=True)
   return data
