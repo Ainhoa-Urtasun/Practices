@@ -21,5 +21,5 @@ def data(treelabel,country,unit):
   data = data[data.time>2009]
   data = data[(data.age=='From 15 to 24 years')|(data.age=='From 25 to 54 years')|(data.age=='From 55 to 64 years')]
   data = data[['age','sex','time',0]]
-  data.rename(columns={0:'Thousand persons'})
+  data.rename(columns={0:'Thousand persons'},inplace=True)
   return data
