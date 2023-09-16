@@ -2,7 +2,7 @@ import requests
 import json
 import pandas
 
-def data(treelabel,country,unit):
+def data(treelabel,country1,country2,unit):
   fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
   url = '{}{}'.format(fixed,treelabel)
   metadata = requests.get(url).json()
@@ -14,10 +14,8 @@ def data(treelabel,country,unit):
   data = data.reindex(range(0,n),fill_value=0)
   structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
   data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
-  data = data.unstack(['geo'])[[country]].reset_index()
-  data = data[data.unit==unit]
+  data = data[(data.geo==country1)|(data.geo==country2)]
+  data = data[data['indic_is']==unit]
   data['time'] = data['time'].astype(int)
-  data = data[data.time>2009]
-  data = data[(data.age=='From 15 to 24 years')|(data.age=='From 25 to 54 years')|(data.age=='From 55 to 64 years')]
-  data = data[['age','sex','time',country]]
+  data = data[data.time==2022]
   return data
