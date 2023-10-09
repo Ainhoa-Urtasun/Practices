@@ -1,6 +1,12 @@
 import requests
 import json
 import pandas
+import geopandas
+import matplotlib.pyplot as plt
+from shapely.geometry import Polygon
+
+plt.rcParams['figure.figsize']=(12,10)
+plt.rcParams['font.size']=12
 
 fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
 url = '{}{}'.format(fixed,'qoe_ewcs_7b3')
@@ -17,4 +23,6 @@ data = data.reset_index()
 data = data[data.geo=='Spain']
 data = data[['age','sex','time',0]]
 data.rename(columns={0:'percentage'},inplace=True)
-data
+
+world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
+world.plot()
