@@ -44,4 +44,3 @@ ax.axis('off')
 ax.text(mydata.loc[mydata.ADMIN=='Spain','geometry'].centroid.x,mydata.loc[mydata.ADMIN=='Spain','geometry'].centroid.y,
         str(data.loc[(data.ADMIN=='Spain')&(data.time=='2005'),'percentage'].values[0])+'% (2005)\n'+
         str(data.loc[(data.ADMIN=='Spain')&(data.time=='2015'),'percentage'].values[0])+'% (2015)',fontsize=12,ha='center',va='center')
-plt.show()
