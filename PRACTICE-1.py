@@ -8,8 +8,8 @@ import pyproj
 import warnings
 warnings.filterwarnings("ignore")
 
-plt.rcParams['figure.figsize']=(12,10)
-plt.rcParams['font.size']=12
+#plt.rcParams['figure.figsize']=(12,10)
+#plt.rcParams['font.size']=12
 
 fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
 url = '{}{}'.format(fixed,'qoe_ewcs_7b3')
@@ -43,4 +43,3 @@ ax.axis('off')
 ax.text(mydata.loc[mydata.ADMIN=='Spain','geometry'].centroid.x,mydata.loc[mydata.ADMIN=='Spain','geometry'].centroid.y,
         str(data.loc[(data.ADMIN=='Spain')&(data.time=='2005'),'percentage'].values[0])+'% (2005)\n'+
         str(data.loc[(data.ADMIN=='Spain')&(data.time=='2015'),'percentage'].values[0])+'% (2015)',fontsize=12,ha='center',va='center')
-plt.show()
