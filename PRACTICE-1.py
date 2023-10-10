@@ -32,7 +32,6 @@ world = geopandas.read_file('/content/drive/MyDrive/2024-HRM/ne_110m_admin_0_cou
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
 europe = geopandas.clip(world,polygon)
 
-# Plot the original and clipped polygons
 data.rename(columns={'geo':'ADMIN'},inplace=True)
 mydata = data[data.time=='2015']
 mydata = mydata.merge(europe,on='ADMIN',how='right')
@@ -44,3 +43,4 @@ ax.axis('off')
 ax.text(mydata.loc[mydata.ADMIN=='Spain','geometry'].centroid.x,mydata.loc[mydata.ADMIN=='Spain','geometry'].centroid.y,
         str(data.loc[(data.ADMIN=='Spain')&(data.time=='2005'),'percentage'].values[0])+'% (2005)\n'+
         str(data.loc[(data.ADMIN=='Spain')&(data.time=='2015'),'percentage'].values[0])+'% (2015)',fontsize=12,ha='center',va='center')
+plt.show()
