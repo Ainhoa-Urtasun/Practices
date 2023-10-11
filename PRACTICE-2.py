@@ -8,11 +8,8 @@ import pyproj
 import warnings
 warnings.filterwarnings("ignore")
 
-#plt.rcParams['figure.figsize']=(12,10)
-#plt.rcParams['font.size']=12
-
 fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
-url = '{}{}'.format(fixed,'lfsi_emp_a')
+url = '{}{}'.format(fixed,'migr_resfas')
 metadata = requests.get(url).json()
 #print(metadata['label'])
 data = pandas.Series(metadata['value']).rename(index=int).sort_index()
@@ -23,11 +20,12 @@ data = data.reindex(range(0,n),fill_value=0)
 structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
 data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
 mydata = data.reset_index()
-mydata = mydata[mydata.unit=='Thousand persons']
+mydata = mydata[mydata.reason=='Employment reasons']
 mydata = mydata[mydata.time=='2022']
-mydata = mydata[mydata.age=='From 25 to 54 years']
+mydata = mydata[mydata.sex=='Total']
+mydata = mydata[mydata.age=='Total']
 mydata = mydata[['geo',0]]
-mydata.rename(columns={0:'Thousand persons'},inplace=True)
+mydata.rename(columns={0:'Persons'},inplace=True)
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 
 world = geopandas.read_file('/content/drive/MyDrive/2024-HRM/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
