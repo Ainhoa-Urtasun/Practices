@@ -25,6 +25,7 @@ data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
 mydata = data.reset_index()
 mydata['time'] = mydata['time'].astype(int)
 mydata = mydata[mydata.time=='2022']
+print(mydata)
 mydata = mydata[mydata.age=='From 25 to 54 years']
 mydata = mydata[['geo',0]]
 mydata.rename(columns={0:'Thousand persons'},inplace=True)
