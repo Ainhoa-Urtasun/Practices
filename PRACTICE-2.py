@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
-url = '{}{}'.format(fixed,'migr_resfas')
+url = '{}{}'.format(fixed,'dg_05_60')
 metadata = requests.get(url).json()
 #print(metadata['label'])
 data = pandas.Series(metadata['value']).rename(index=int).sort_index()
@@ -19,40 +19,12 @@ for num in metadata['size']:
 data = data.reindex(range(0,n),fill_value=0)
 structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
 data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
-mydata0 = data.reset_index()
-print(mydata0)
-mydata0 = mydata0[mydata0.citizen=='Total']
-mydata0 = mydata0[mydata0.reason=='Employment reasons']
-mydata0 = mydata0[mydata0.time=='2022']
-mydata0 = mydata0[mydata0.sex=='Total']
-mydata0 = mydata0[mydata0.age=='Total']
-mydata0 = mydata0[['geo',0]]
-mydata0.rename(columns={0:'Migrants'},inplace=True)
-mydata0.rename(columns={'geo':'ADMIN'},inplace=True)
-
-fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
-url = '{}{}'.format(fixed,'lfsi_emp_a')
-metadata = requests.get(url).json()
-#print(metadata['label'])
-data = pandas.Series(metadata['value']).rename(index=int).sort_index()
-n = 1 # Initialize the result to 1
-for num in metadata['size']:
-  n *= num
-data = data.reindex(range(0,n),fill_value=0)
-structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
-data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
-mydata1 = data.reset_index()
-mydata1 = mydata1[mydata1.unit=='Thousand persons']
-mydata1 = mydata1[mydata1.time=='2022']
-mydata1 = mydata1[mydata1.sex=='Total']
-mydata1 = mydata1[mydata1.age=='From 20 to 64 years']
-mydata1 = mydata1[['geo',0]]
-mydata1.rename(columns={0:'Thousand persons'},inplace=True)
-mydata1.rename(columns={'geo':'ADMIN'},inplace=True)
-
-mydata = mydata1.merge(mydata0,on='ADMIN',how='inner')
-mydata['Percentage'] = 100*mydata['Migrants']/(1000*mydata['Thousand persons'])
-mydata = mydara[['ADMIN','Percentage']]
+mydata = data.reset_index()
+print(mydata)
+mydata = mydata[mydata.time=='2022']
+mydata = mydata[['geo',0]]
+mydata.rename(columns={0:'Percentage'},inplace=True)
+mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 
 world = geopandas.read_file('/content/drive/MyDrive/2024-HRM/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
