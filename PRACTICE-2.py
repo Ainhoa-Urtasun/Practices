@@ -24,11 +24,11 @@ structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]
 data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
 mydata = data.reset_index()
 mydata['time'] = mydata['time'].astype(int)
-mydata = mydata[mydata.time>2009]
+mydata = mydata[mydata.time=='2022']
 mydata = mydata[mydata.age=='From 25 to 54 years']
-mydata = mydata[['sex','time',0]]
-data.rename(columns={0:'Thousand persons'},inplace=True)
-data.rename(columns={'geo':'ADMIN'},inplace=True)
+mydata = mydata[['sex',0]]
+mydata.rename(columns={0:'Thousand persons'},inplace=True)
+mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 
 world = geopandas.read_file('/content/drive/MyDrive/2024-HRM/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
