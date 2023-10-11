@@ -26,7 +26,7 @@ mydata = data.reset_index()
 mydata['time'] = mydata['time'].astype(int)
 mydata = mydata[mydata.time=='2022']
 mydata = mydata[mydata.age=='From 25 to 54 years']
-mydata = mydata[['sex',0]]
+mydata = mydata[['geo',0]]
 mydata.rename(columns={0:'Thousand persons'},inplace=True)
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 
