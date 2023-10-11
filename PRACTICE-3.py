@@ -22,8 +22,8 @@ data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
 mydata = data.reset_index()
 print(mydata)
 mydata = mydata[mydata.time=='2022']
-mydata = mydata[mydata.industry=='Professional, scientific and technical activities']
-mydata = mydata[mydata['digital intensity'].str.contains('Enterprises with very high digital intensity')]
+mydata = mydata[mydata['nace_r2']=='Professional, scientific and technical activities']
+mydata = mydata[mydata['indic_is'].str.contains('Enterprises with very high digital intensity')]
 mydata = mydata[['geo',0]]
 mydata.rename(columns={0:'Percentage'},inplace=True)
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
