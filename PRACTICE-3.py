@@ -20,10 +20,10 @@ data = data.reindex(range(0,n),fill_value=0)
 structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
 data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
 mydata = data.reset_index()
-print(mydata)
 mydata = mydata[mydata.time=='2022']
 mydata = mydata[mydata['nace_r2']=='Professional, scientific and technical activities']
 mydata = mydata[mydata['indic_is'].str.contains('Enterprises with very high digital intensity')]
+print(mydata)
 mydata = mydata[['geo',0]]
 mydata.rename(columns={0:'Percentage'},inplace=True)
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
@@ -34,7 +34,7 @@ europe = geopandas.clip(world,polygon)
 
 mydata = mydata.merge(europe,on='ADMIN',how='right')
 mydata = geopandas.GeoDataFrame(mydata,geometry='geometry')
-fig,ax = plt.subplots(1,figsize=(10,15))
+fig,ax = plt.subplots(1,figsize=(10,10))
 mydata.plot(column='Percentage',alpha=0.8,cmap='viridis',ax=ax,legend=True)
 ax.set_title('Percentage of professional, scientific, and technical businesses\nwith very high digital intensity in 2022 (source: Eurostat)')
 ax.axis('off')
