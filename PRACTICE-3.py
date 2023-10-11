@@ -23,7 +23,6 @@ mydata = data.reset_index()
 mydata = mydata[mydata.time=='2022']
 mydata = mydata[mydata['nace_r2']=='Professional, scientific and technical activities']
 mydata = mydata[mydata['indic_is']=='Enterprises with very high digital intensity index (Version 4)']
-print(mydata)
 mydata = mydata[['geo',0]]
 mydata.rename(columns={0:'Percentage'},inplace=True)
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
@@ -35,6 +34,6 @@ europe = geopandas.clip(world,polygon)
 mydata = mydata.merge(europe,on='ADMIN',how='right')
 mydata = geopandas.GeoDataFrame(mydata,geometry='geometry')
 fig,ax = plt.subplots(1,figsize=(10,10))
-mydata.plot(column='Percentage',alpha=0.8,cmap='viridis',ax=ax,legend=True)
+mydata.plot(column='Percentage',alpha=0.8,cmap='Pastel1',ax=ax,legend=True)
 ax.set_title('Percentage of professional, scientific, and technical businesses\nwith very high digital intensity in 2022 (source: Eurostat)')
 ax.axis('off')
