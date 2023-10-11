@@ -22,18 +22,18 @@ for num in metadata['size']:
 data = data.reindex(range(0,n),fill_value=0)
 structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
 data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
-data = data.reset_index()
-data = data[data.sex=='Total']
-data = data[data.age=='From 25 to 64 years']
-data = data[['geo','time',0]]
-data.rename(columns={0:'percentage'},inplace=True)
+mydata = data.reset_index()
+mydata = mydata[mydata.sex=='Total']
+mydata = mydata[mydata.age=='From 25 to 64 years']
+mydata = mydata[mydata.time=='2015']
+mydata = mydata[['geo',0]]
+mydata.rename(columns={'geo':'ADMIN'},inplace=True)
+mydata.rename(columns={0:'percentage'},inplace=True)
 
 world = geopandas.read_file('/content/drive/MyDrive/2024-HRM/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
 europe = geopandas.clip(world,polygon)
 
-data.rename(columns={'geo':'ADMIN'},inplace=True)
-mydata = data[data.time=='2015']
 mydata = mydata.merge(europe,on='ADMIN',how='right')
 mydata = geopandas.GeoDataFrame(mydata,geometry='geometry')
 fig,ax = plt.subplots(1,figsize=(10,15))
