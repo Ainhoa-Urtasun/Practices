@@ -11,7 +11,8 @@ warnings.filterwarnings("ignore")
 fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
 url = '{}{}'.format(fixed,'dg_05_60')
 metadata = requests.get(url).json()
-#print(metadata['label'])
+print(metadata['label'])
+print(metadata)
 data = pandas.Series(metadata['value']).rename(index=int).sort_index()
 n = 1 # Initialize the result to 1
 for num in metadata['size']:
