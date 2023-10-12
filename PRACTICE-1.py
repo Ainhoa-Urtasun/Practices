@@ -32,7 +32,6 @@ mydata = mydata[['geo','lev_satis',0]]
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 mydata.rename(columns={0:'Thousand persons'},inplace=True)
 mydata = mydata.pivot(index='ADMIN',columns='lev_satis',values='Thousand persons')
-mydata.columns = mydata.columns.droplevel(level=0)
 mydata.rename(columns={'ADMIN':'GEO'},inplace=True)
 mydata = mydata.rename_axis(columns=None)
 print(mydata)
