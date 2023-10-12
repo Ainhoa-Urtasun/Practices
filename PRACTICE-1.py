@@ -35,7 +35,6 @@ mydata = mydata.pivot(index='ADMIN',columns='lev_satis',values='Thousand persons
 mydata.rename(columns={'ADMIN':'GEO'},inplace=True)
 mydata = mydata.rename_axis(columns=None)
 mydata['percentage'] = 100*mydata['High']/mydata['Total']
-print(mydata)
 
 world = geopandas.read_file('/content/PRACTICES/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
