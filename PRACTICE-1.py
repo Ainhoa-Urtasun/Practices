@@ -29,10 +29,9 @@ mydata = mydata[mydata['c_birth']=='Total']
 mydata = mydata[mydata['isced11']=='All ISCED 2011 levels']
 mydata = mydata[mydata.age=='From 25 to 74 years']
 mydata = mydata[(mydata['lev_satis']=='Total')|(mydata['lev_satis']=='High')]
-print(mydata)
-mydata = mydata[['geo',0]]
+mydata = mydata[['geo','level_satis',0]]
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
-mydata.rename(columns={0:'percentage'},inplace=True)
+mydata.rename(columns={0:'Thousand persons'},inplace=True)
 
 world = geopandas.read_file('/content/PRACTICES/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
