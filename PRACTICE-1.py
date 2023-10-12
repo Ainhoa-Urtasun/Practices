@@ -31,8 +31,10 @@ mydata = mydata[(mydata['lev_satis']=='Total')|(mydata['lev_satis']=='High')]
 mydata = mydata[['geo','lev_satis',0]]
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 mydata.rename(columns={0:'Thousand persons'},inplace=True)
-pivoted_df = df.pivot(index='ADMIN',columns='lev_satis',values='Thousand persons')
-pivoted_df = pivoted_df.rename_axis(columns=None)
+mydata = mydata.pivot(index='ADMIN',columns='lev_satis',values='Thousand persons')
+mydata.columns = mydata.columns.droplevel(level=0)
+mydata.rename(columns={'ADMIN':'GEO'},inplace=True)
+mydata = mydata.rename_axis(columns=None)
 print(mydata)
 
 world = geopandas.read_file('/content/PRACTICES/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
