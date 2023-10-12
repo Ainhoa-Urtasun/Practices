@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore")
 #plt.rcParams['font.size']=12
 
 fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
-url = '{}{}'.format(fixed,'qoe_ewcs_7b3')
+url = '{}{}'.format(fixed,'lfso_21jsat01')
 metadata = requests.get(url).json()
 #print(metadata['label'])
 data = pandas.Series(metadata['value']).rename(index=int).sort_index()
@@ -24,8 +24,11 @@ structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]
 data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
 mydata = data.reset_index()
 mydata = mydata[mydata.sex=='Total']
-mydata = mydata[mydata.age=='From 25 to 64 years']
-mydata = mydata[mydata.time=='2015']
+mydata = mydata[mydata['c_birth']=='Total']
+mydata = mydata[mydata['isced11']=='Total']
+mydata = mydata[mydata.age=='From 25 to 74 years']
+mydata = mydata[(mydata['lev_satis']=='Total')|(mydata['lev_satis']=='High')]
+print(mydata)
 mydata = mydata[['geo',0]]
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 mydata.rename(columns={0:'percentage'},inplace=True)
