@@ -26,7 +26,7 @@ mydata = data.reset_index()
 print(mydata)
 mydata = mydata[mydata.sex=='Total']
 mydata = mydata[mydata['c_birth']=='Total']
-mydata = mydata[mydata['isced11']=='Total']
+mydata = mydata[mydata['isced11']=='All ISCED 2011 levels']
 mydata = mydata[mydata.age=='From 25 to 74 years']
 mydata = mydata[(mydata['lev_satis']=='Total')|(mydata['lev_satis']=='High')]
 print(mydata)
