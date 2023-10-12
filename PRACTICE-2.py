@@ -26,7 +26,7 @@ mydata = mydata[['geo',0]]
 mydata.rename(columns={0:'Percentage'},inplace=True)
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 
-world = geopandas.read_file('/content/drive/MyDrive/2024-HRM/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
+world = geopandas.read_file('/content/PRACTICES/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
 europe = geopandas.clip(world,polygon)
 
