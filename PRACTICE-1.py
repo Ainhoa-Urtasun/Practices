@@ -29,7 +29,7 @@ mydata = mydata[mydata['c_birth']=='Total']
 mydata = mydata[mydata['isced11']=='All ISCED 2011 levels']
 mydata = mydata[mydata.age=='From 25 to 74 years']
 mydata = mydata[(mydata['lev_satis']=='Total')|(mydata['lev_satis']=='High')]
-mydata = mydata[['geo','level_satis',0]]
+mydata = mydata[['geo','lev_satis',0]]
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 mydata.rename(columns={0:'Thousand persons'},inplace=True)
 
