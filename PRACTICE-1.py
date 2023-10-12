@@ -23,7 +23,6 @@ data = data.reindex(range(0,n),fill_value=0)
 structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
 data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
 mydata = data.reset_index()
-print(mydata)
 mydata = mydata[mydata.sex=='Total']
 mydata = mydata[mydata['c_birth']=='Total']
 mydata = mydata[mydata['isced11']=='All ISCED 2011 levels']
@@ -32,6 +31,7 @@ mydata = mydata[(mydata['lev_satis']=='Total')|(mydata['lev_satis']=='High')]
 mydata = mydata[['geo','lev_satis',0]]
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 mydata.rename(columns={0:'Thousand persons'},inplace=True)
+print(mydata)
 
 world = geopandas.read_file('/content/PRACTICES/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
