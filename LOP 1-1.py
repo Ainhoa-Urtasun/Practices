@@ -32,10 +32,10 @@ mydata = mydata[['geo','lev_satis',0]]
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 mydata.rename(columns={0:'Thousand persons'},inplace=True)
 mydata = mydata.pivot(index='ADMIN',columns='lev_satis',values='Thousand persons')
-mydata.rename(columns={'ADMIN':'GEO'},inplace=True)
-mydata = mydata.rename_axis(columns=None)
+# mydata.rename(columns={'ADMIN':'GEO'},inplace=True)
+# mydata = mydata.rename_axis(columns=None)
 mydata['percentage'] = 100*mydata['High']/mydata['Total']
-table = mydata[['GEO','percentage']]
+table = mydata[['ADMIN','percentage']]
 
 world = geopandas.read_file('/content/LOP/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
