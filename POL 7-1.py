@@ -9,10 +9,11 @@ plt.title('Training Evaluation',fontsize=16)
 plt.ylabel('Labor productivity',fontsize=14)
 plt.text(0.25,-2.5,'[Training takes place during January 2024]',fontsize=14)
 plt.legend(fontsize=14)
+plt.yticks([],[])
+plt.twinx()
 ticks = numpy.arange(0,31)
 labels = ['' if i % 5 != 0 else str(i) for i in ticks]
 plt.yticks(ticks,labels,fontsize=12)  # Define the ticks and labels
-tick_params(labeltop=True, labelright=True)
 plt.grid()
 plt.box(False)
 plt.show()
