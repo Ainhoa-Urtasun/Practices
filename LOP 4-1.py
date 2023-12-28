@@ -22,7 +22,7 @@ plt.yticks(tasks,fontsize=12)
 plt.legend(['Active listening','Management of Personnel Resources','Speaking','Judgement and Decision Making','Reading Comprehension'],
            fontsize=12,loc='upper left',bbox_to_anchor=(1.02,1.0))
 
-ticks = numpy.arange(1,15)  # 15 ticks
+ticks = numpy.arange(1,20)  # 20 ticks
 labels = ['' if i % 1 != 0 else str(i) for i in ticks]
 plt.xticks(ticks,labels,fontsize=12)
 plt.xlabel('Weekly Working Hours')
