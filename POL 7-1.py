@@ -11,7 +11,7 @@ ticks = numpy.arange(0,31)  # 100 ticks
 labels = ['' if i % 5 != 0 else str(i) for i in ticks]
 plt.yticks(ticks,labels,fontsize=12)
 plt.legend(fontsize=14)
-plt.gca().twinx()
+plt.twinx()
 plt.yticks(ticks,labels,fontsize=12)  # Define the ticks and labels
 plt.xticks(fontsize=14)
 plt.grid()
