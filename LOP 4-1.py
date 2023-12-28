@@ -11,7 +11,7 @@ tasks = ['Serve as a link between\nmanagement and employees',
 colors = ['red','green','blue','yellow','grey']  # Colors for each skill
 
 # Create the stacked horizontal bar chart
-plt.figure(figsize=(15,2))  # Set figure size
+plt.figure(figsize=(15,7))  # Set figure size
 plt.barh(tasks,[3,3,1,1,1],color=colors[0])
 plt.barh(tasks,[3,3,3,3,3],left=[3,3,1,1,1], color=colors[1])
 plt.barh(tasks,[3,3,1,2,3],left=numpy.array([3,3,1,1,1])+numpy.array([3,3,3,3,3]),color=colors[2])
@@ -22,8 +22,8 @@ plt.yticks(tasks,fontsize=12)
 plt.legend(['Active listening','Management of Personnel Resources','Speaking','Judgement and Decision Making','Reading Comprehension'],
            fontsize=12,loc='upper left',bbox_to_anchor=(1.02,1.0))
 
-ticks = numpy.arange(1,15)  # 100 ticks
-labels = ['' if i % 5 != 0 else str(i) for i in ticks]
+ticks = numpy.arange(1,15)  # 15 ticks
+labels = ['' if i % 1 != 0 else str(i) for i in ticks]
 plt.xticks(ticks,labels,fontsize=12)
 plt.xlabel('Minutes of daily work')
 plt.grid(axis='x')
