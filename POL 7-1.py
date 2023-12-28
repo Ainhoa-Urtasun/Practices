@@ -12,10 +12,7 @@ plt.legend(fontsize=14)
 ticks = numpy.arange(0,31)
 labels = ['' if i % 5 != 0 else str(i) for i in ticks]
 plt.yticks(ticks,labels,fontsize=12)  # Define the ticks and labels
-plt.twinx()
-ticks = numpy.arange(0,31)
-labels = ['' if i % 5 != 0 else str(i) for i in ticks]
-plt.yticks(ticks,labels,fontsize=12)  # Define the ticks and labels
+tick_params(labeltop=True, labelright=True)
 plt.grid()
 plt.box(False)
 plt.show()
