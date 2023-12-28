@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy
-fig = plt.figure(figsize=(7,5),dpi=100)
+fig = plt.figure(figsize=(10,5),dpi=100)
 plt.plot(['December 2023','February 2024'],[0,25],color='red',label='Trainees')
 plt.plot(['December 2023','February 2024'],[15,30],color='blue',label='Control')
 plt.plot(['December 2023','February 2024'],[0,0+30-15],color='blue',ls='-.',label='Counterfactual')
