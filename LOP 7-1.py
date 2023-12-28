@@ -7,11 +7,11 @@ plt.plot(['December 2023','February 2024'],[45,45+90-75],color='blue',ls='-.',la
 plt.title('Training Evaluation',fontsize=16)
 plt.xlabel('Time',fontsize=14)
 plt.ylabel('Labor productivity',fontsize=14)
-plt.text(1,1,'Training takes place during January 2024')
+plt.text(1,50,'Training takes place during January 2024')
 ticks = numpy.arange(40,101)  # 100 ticks
 labels = ['' if i % 5 != 0 else str(i) for i in ticks]
 plt.yticks(ticks,labels,fontsize=12)
 plt.grid()
 plt.box(False)
-plt.legend()
+plt.legend(fontsize=14)
 plt.show()
