@@ -6,7 +6,7 @@ tasks = ['Serve as a link between\nmanagement and employees',
          'Advise managers on\norganizational policy matters',
          'Analyze and modify compensation\nand benefits policies',
          'Perform difficult staffing duties\nincluding firing employees',
-         'Represent organization at personnel-related events']
+         'Represent organization\nat personnel-related events']
 
 colors = ['red','green','blue','yellow','grey']  # Colors for each skill
 
@@ -22,10 +22,10 @@ plt.yticks(tasks,fontsize=12)
 plt.legend(['Active listening','Management of Personnel Resources','Speaking','Judgement and Decision Making','Reading Comprehension'],
            fontsize=12,loc='upper left',bbox_to_anchor=(1.02,1.0))
 
-ticks = numpy.arange(1,20)  # 20 ticks
+ticks = numpy.arange(1,16)  # 20 ticks
 labels = ['' if i % 1 != 0 else str(i) for i in ticks]
 plt.xticks(ticks,labels,fontsize=12)
-plt.xlabel('Weekly Working Hours')
+plt.xlabel('Weekly Working Hours',fontsize=16)
 plt.grid(axis='x')
 plt.title('11-3121 Human Resource Managers',fontsize=16)
 plt.box(False)
