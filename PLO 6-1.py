@@ -17,4 +17,4 @@ rh.node('n7',r'600\n-250',color='white',style='filled',fillcolor='white')
 rh.node('n8',r'0\n0',color='white',style='filled',fillcolor='white')
 rh.edge('n3','n7',label='Yes')
 rh.edge('n3','n8',label='No')
-rh
+rh.render()
