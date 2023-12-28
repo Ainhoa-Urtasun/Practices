@@ -27,6 +27,6 @@ labels = ['' if i % 1 != 0 else str(i) for i in ticks]
 plt.xticks(ticks,labels,fontsize=12)
 plt.xlabel('Weekly Working Hours',fontsize=16)
 plt.grid(axis='x')
-plt.title('11-3121 Human Resource Managers',fontsize=16)
+plt.title('11-3121 Human Resource Managers',fontsize=20)
 plt.box(False)
 plt.show()
