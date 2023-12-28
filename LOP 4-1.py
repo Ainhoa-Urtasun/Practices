@@ -15,8 +15,8 @@ plt.figure(figsize=(15,2))  # Set figure size
 plt.barh(tasks,[3,3,1,1,1],color=colors[0])
 plt.barh(tasks,[3,3,3,3,3],left=[3,3,1,1,1], color=colors[1])
 plt.barh(tasks,[3,3,1,2,3],left=numpy.array([3,3,1,1,1])+numpy.array([3,3,3,3,3]),color=colors[2])
-plt.barh(tasks,[1,3,3,3,1],left=numpy.array([3,3,1,1,1])+numpy.array([3,3,3,3,3])+mumpy.array([3,3,1,2,3]),color=colors[3])
-plt.barh(tasks,[1,1,3,1,1],left=numpy.array([3,3,1,1,1])+numpy.array([3,3,3,3,3])+mumpy.array([3,3,1,2,3])+numpy.array([1,3,3,3,1]),color=colors[4])
+plt.barh(tasks,[1,3,3,3,1],left=numpy.array([3,3,1,1,1])+numpy.array([3,3,3,3,3])+numpy.array([3,3,1,2,3]),color=colors[3])
+plt.barh(tasks,[1,1,3,1,1],left=numpy.array([3,3,1,1,1])+numpy.array([3,3,3,3,3])+numpy.array([3,3,1,2,3])+numpy.array([1,3,3,3,1]),color=colors[4])
 plt.yticks(tasks,fontsize=12)
 # Create a legend for the colors
 plt.legend(['Active listening','Management of Personnel Resources','Speaking','Judgement and Decision Making','Reading Comprehension'],
