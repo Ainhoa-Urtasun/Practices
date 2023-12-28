@@ -25,7 +25,7 @@ plt.legend(['Active listening','Management of Personnel Resources','Speaking','J
 ticks = numpy.arange(1,15)  # 15 ticks
 labels = ['' if i % 1 != 0 else str(i) for i in ticks]
 plt.xticks(ticks,labels,fontsize=12)
-plt.xlabel('Minutes of daily work')
+plt.xlabel('Weekly Working Hours')
 plt.grid(axis='x')
 plt.title('11-3121 Human Resource Managers',fontsize=16)
 plt.box(False)
