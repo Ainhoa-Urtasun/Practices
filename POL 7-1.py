@@ -7,7 +7,7 @@ plt.plot(['December 2023','February 2024'],[0,0+30-15],marker='o',color='green',
 plt.xticks(fontsize=14)
 ticks = numpy.arange(0,30)  # 20 ticks
 labels = ['' if i % 1 != 0 else str(i) for i in ticks]
-plt.xticks(ticks,labels,fontsize=12)
+plt.yticks(ticks,labels,fontsize=12)
 plt.title('Training Evaluation',fontsize=16)
 plt.ylabel('Labor productivity',fontsize=14)
 plt.text(0.25,-2.5,'[Training takes place during January 2024]',fontsize=14)
