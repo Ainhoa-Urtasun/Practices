@@ -13,7 +13,7 @@ ticks = numpy.arange(1,101)  # 100 ticks
 labels = ['' if i % 5 != 0 else str(i) for i in ticks]
 plt.yticks(ticks,labels,fontsize=12)
 
-plt.grid(axis='y')
+plt.grid()
 
 plt.box(False)
 
