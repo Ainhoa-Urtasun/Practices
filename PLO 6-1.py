@@ -3,7 +3,7 @@ tree = graphviz.Digraph(node_attr={'shape':'record'},edge_attr={'fontsize':'10'}
 tree.node('n0',r'Nature',color='black',style='filled',fillcolor='lightgreen',shape='ellipse')
 tree.node('n1',r'Employer',color='black',style='filled',fillcolor='lightblue')
 tree.node('n2',r'Employer',color='black',style='filled',fillcolor='lightpink')
-tree.edge('n0','n1',label='Productive\n(p=0.6)')
+tree.edge('n0','n1',label='Productive\n€1,200\n(p=0.6)')
 tree.edge('n0','n2',label='Non-productive\n(1-p=0.4)')
 tree.node('n3',r'Job candidate',color='black',style='filled',fillcolor='lightblue')
 tree.node('n4',r'Job candidate',color='black',style='filled',fillcolor='lightblue')
