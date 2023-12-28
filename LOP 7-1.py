@@ -7,7 +7,7 @@ plt.plot(['Before the training','After the training'],[45,45+90-75],color='blue'
 plt.title('Training Evaluation')
 plt.xlabel('Time')
 plt.ylabel('Labor productivity')
-ticks = numpy.arange(1,101)  # 100 ticks
+ticks = numpy.arange(40,101)  # 100 ticks
 labels = ['' if i % 5 != 0 else str(i) for i in ticks]
 plt.yticks(ticks,labels,fontsize=12)
 plt.grid()
