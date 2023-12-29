@@ -28,7 +28,7 @@ mydata = mydata.pivot(index='time',columns='na_item',values=0).reset_index()
 plt.figure(figsize=(20,10))  # Adjust the figure size if needed
 plt.plot(mydata.time,mydata['Nominal unit labour cost based on hours worked'], label='Nominal unit labor cost based on hours worked',marker='o',color='blue')  # Plotting variable 1
 plt.plot(mydata.time,mydata['Real labour productivity per hour worked'], label='Real labor productivity per hour worked',marker='x',color='red')  # Plotting variable 2
-ticks = numpy.arange(0,len(mydata.time))
+ticks = numpy.arange(1,len(mydata.time)+1)
 labels = ['' if i % 3 != 0 else 'Q'+str(i) for i in ticks]
 plt.xticks(ticks,labels,fontsize=12)
 plt.xlabel('Quarters from 2000 to 2023')
