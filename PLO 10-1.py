@@ -26,7 +26,7 @@ mydata = mydata[mydata.time.str.contains('20')]
 mydata = mydata.pivot(index='time',columns='na_item',values=0).reset_index()
 
 plt.figure(figsize=(20,10))  # Adjust the figure size if needed
-m = ['.' if (i + 1) % 4 == 0 else '' for i,num in enumerate(mydata['Nominal unit labour cost based on hours worked'])]
+m = ['o' if (i + 1) % 4 == 0 else '.' for i,num in enumerate(mydata['Nominal unit labour cost based on hours worked'])]
 plt.plot(mydata.time,mydata['Nominal unit labour cost based on hours worked'], label='Nominal unit labor cost based on hours worked',marker=m,color='blue')  # Plotting variable 1
 plt.plot(mydata.time,mydata['Real labour productivity per hour worked'], label='Real labor productivity per hour worked',marker='x',color='red')  # Plotting variable 2
 ticks = numpy.arange(1,len(mydata.time)+1)
