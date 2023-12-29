@@ -26,7 +26,8 @@ mydata = mydata[mydata.time.str.contains('20')]
 mydata = mydata.pivot(index='time',columns='na_item',values=0).reset_index()
 
 plt.figure(figsize=(20,10))  # Adjust the figure size if needed
-plt.plot(mydata.time,mydata['Nominal unit labour cost based on hours worked'], label='Nominal unit labor cost based on hours worked',marker='o',color='blue')  # Plotting variable 1
+m = ['o' if (i + 1) % 4 == 0 else '' for i,num in enumerate(mydata['Nominal unit labour cost based on hours worked'])]
+plt.plot(mydata.time,mydata['Nominal unit labour cost based on hours worked'], label='Nominal unit labor cost based on hours worked',marker=m,color='blue')  # Plotting variable 1
 plt.plot(mydata.time,mydata['Real labour productivity per hour worked'], label='Real labor productivity per hour worked',marker='x',color='red')  # Plotting variable 2
 ticks = numpy.arange(1,len(mydata.time)+1)
 labels = ['' if i % 4 != 0 else 'Q'+str(i) for i in ticks]
@@ -34,10 +35,10 @@ plt.xticks(ticks,labels,fontsize=12)
 plt.xlabel('Quarters from 2000 to 2023')
 txt = [int(num) if (i + 1) % 4 == 0 else '' for i,num in enumerate(mydata['Nominal unit labour cost based on hours worked'])]
 for i in numpy.arange(0,len(txt)):
-  plt.annotate(txt[i],(ticks[i],mydata['Nominal unit labour cost based on hours worked'][i]),xytext=(10,10),ha='center',color='blue')
+  plt.annotate(txt[i],(ticks[i],mydata['Nominal unit labour cost based on hours worked'][i]),textcoords='offset points',xytext=(10,10),ha='center',color='blue')
 txt = [int(num) if (i + 1) % 4 == 0 else '' for i,num in enumerate(mydata['Real labour productivity per hour worked'])]
 for i in numpy.arange(0,len(txt)):
-  plt.annotate(txt[i],(ticks[i],mydata['Real labour productivity per hour worked'][i]),textcoords="offset points",xytext=(10,10),ha='center',color='red')
+  plt.annotate(txt[i],(ticks[i],mydata['Real labour productivity per hour worked'][i]),textcoords='offset points',xytext=(10,10),ha='center',color='red')
 ticks = numpy.arange(75,130)
 labels = ['' if i % 5 != 0 else str(i) for i in ticks]
 plt.yticks(ticks,labels,fontsize=12)
