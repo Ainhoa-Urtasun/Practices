@@ -34,8 +34,8 @@ plt.xticks(ticks,labels,fontsize=12)
 plt.xlabel('Quarters from 2000 to 2023')
 txt = [int(num) if (i + 1) % 4 == 0 else '' for i,num in enumerate(mydata['Nominal unit labour cost based on hours worked'])]
 for i in numpy.arange(0,len(txt)):
-  plt.annotate(txt[i],(ticks[i],mydata['Nominal unit labour cost based on hours worked'][i]),textcoords="offset points",xytext=(10,0),ha='center',color='blue')
-txt = [num if (i + 1) % 4 == 0 else '' for i,num in enumerate(mydata['Real labour productivity per hour worked'])]
+  plt.annotate(txt[i],(ticks[i],mydata['Nominal unit labour cost based on hours worked'][i]),textcoords="offset points",xytext=(0,10),ha='center',color='blue')
+txt = [int(num) if (i + 1) % 4 == 0 else '' for i,num in enumerate(mydata['Real labour productivity per hour worked'])]
 for i in numpy.arange(0,len(txt)):
   plt.annotate(txt[i],(ticks[i],mydata['Real labour productivity per hour worked'][i]),textcoords="offset points",xytext=(0,10),ha='center',color='red')
 ticks = numpy.arange(75,130)
