@@ -4,4 +4,6 @@ data = {'Job1(t)':[53,12,3,8,76],
         'Job3(t)':[7,18,35,9,69],
         'Out(t)':[2,5,5,0,0],
         'Sum':[76,81,49,30,0]}
-table = pd.DataFrame(data, index=['Job1(t-1)','Job2(t-2)','Job3(t-1)','Out(t-1)','Sum'])
+Table = pd.DataFrame(data, index=['Job1(t-1)','Job2(t-2)','Job3(t-1)','Out(t-1)','Sum'])
+Table.loc['Sum'] = Table.sum(axis=0)
+Table['Rows'] = Table.sum(axis=1)
