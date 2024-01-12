@@ -1,5 +1,6 @@
 import pandas as pd
-data = {'Job1(t)': [1, 2, 3],
-        'Job2(t)': [4, 5, 6],
-        'Job3(t)': [7, 8, 9]}
-table = pd.DataFrame(data, index=['Job1(t-1)','Job2(t-2)','Job3(t-1)'])
+data = {'Job1(t)':[53,12,3,8],
+        'Job2(t)':[14,46,6,13],
+        'Job3(t)':[7,18,35,9],
+        'Out(t)':[2,5,5,0]}
+table = pd.DataFrame(data, index=['Job1(t-1)','Job2(t-2)','Job3(t-1)','Out(t-1)'])
