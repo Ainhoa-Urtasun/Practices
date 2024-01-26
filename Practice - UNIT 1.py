@@ -17,7 +17,7 @@ fig, axs = plt.subplots(1,2,figsize=(10,5))
 # Scatter plot on the left
 axs[0].plot(L,QA,'o-',color='blue')
 axs[0].plot(L,QB,'o-',color='orange')
-axs[0].set_title('Total product')
+axs[0].set_title('Total output')
 axs[0].set_xlabel('Number of employees')
 axs[0].grid(True)  # Show grid
 
