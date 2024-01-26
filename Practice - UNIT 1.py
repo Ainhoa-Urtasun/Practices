@@ -25,7 +25,7 @@ axs[0].grid(True)  # Show grid
 axs[1].plot(L,MOLA,'o-',color='blue',label='Firm A')
 axs[1].plot(L,MOLB,'o-',color='orange',label='Firm B')
 axs[1].legend()
-axs[1].set_title('Marginal output of labor ($MO_L$)')
+axs[1].set_title('Marginal output of labor ($MOL$)')
 axs[1].set_xlabel('Number of employees')
 axs[1].grid(True)  # Show grid
 
