@@ -29,5 +29,9 @@ ax.minorticks_on() # Enable minor ticks if needed
 ax.grid(which='major', color='grey', linestyle='-', linewidth=0.5)
 ax.grid(which='minor', color='lightgrey', linestyle='--', linewidth=0.5, alpha=0.5)
 
+# Customize ticks to ensure they fall at every unit
+plt.xticks(np.arange(min(x), max(x)+1, 1.0))
+plt.yticks(np.arange(-1, 2, 1.0))
+
 # Show the plots
 plt.show()
