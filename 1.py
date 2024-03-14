@@ -1,23 +1,33 @@
-import numpy as numpy
 import matplotlib.pyplot as plt
-plt.figure(figsize=(8,6))
-L = numpy.linspace(1,28,100)
-Q = L**0.25
-plt.plot(L,Q)
-x0 = 16
-y0 = 16**0.25
-m = 0.25*16**(-0.75)
-plt.plot(x0,y0,color='red',marker='o')
-plt.plot([x0,x0],[1,y0],linestyle='--',color='red')
-plt.plot([-1,x0],[y0,y0],linestyle='--',color='red')
-x = numpy.linspace(0,28,100)
-plt.plot(x,m*x-x0*m+y0,color='green')
-plt.axhline(1,color='black',linewidth=0.5)
-plt.axvline(0,color='black',linewidth=0.5)
-plt.xlabel('Labor (L)')
-plt.title('Q (K = 1)')
-plt.box(False)
-plt.xticks(range(0,28,2))
-plt.yticks(numpy.arange(1,2.5,0.25))
-plt.grid(True)
+import numpy
+
+# Generate sample data
+# Generate sample data
+L = [0,1,2,3,4,5,6,7,8,9,10]
+QA = [0,11,27,47.5,66,(5/4)*66,98,111,122,131,138]
+QB = [0,10,30,60,100,(5/4)*100,135,140,144,147,149]
+MOLA = numpy.diff(QA).tolist()
+MOLA = [numpy.nan] + MOLA
+VMOLA = [10*x for x in MOLA]
+MOLB = numpy.diff(QB).tolist()
+MOLB = [numpy.nan] + MOLB
+VMOLB = [10*x for x in MOLB]
+w = [50 for _ in range(11)]
+
+# Create subplots
+fig, axs = plt.subplots(1,1,figsize=(10,5))
+
+# Scatter plot
+axs[0].plot(L,VMOLA,'o-',color='blue',label='Firm A')
+axs[0].plot(L,VMOLB,'o-',color='orange',label='Firm B')
+axs[0].plot(L,w,'o-',color='green',label='Wage')
+axs[0].legend()
+axs[0].set_title('Value of marginal output of labor ($VMOL$)')
+axs[0].set_xlabel('Number of employees')
+axs[0].grid(True)  # Show grid
+
+# Adjust layout for better spacing
+plt.tight_layout()
+
+# Show the plots
 plt.show()
