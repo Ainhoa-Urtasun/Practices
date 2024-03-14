@@ -23,7 +23,11 @@ ax.plot(L,VMOLB,'o-',color='orange',label='$VMOL$ of Firm B')
 ax.plot(L,w,'o-',color='green',label='Wage') 
 ax.legend()
 ax.set_xlabel('Number of employees')
-ax.grid(True)  # Show grid
+
+# Setting the grid
+ax.minorticks_on() # Enable minor ticks if needed
+ax.grid(which='major', color='grey', linestyle='-', linewidth=0.5)
+ax.grid(which='minor', color='lightgrey', linestyle='--', linewidth=0.5, alpha=0.5)
 
 # Show the plots
 plt.show()
