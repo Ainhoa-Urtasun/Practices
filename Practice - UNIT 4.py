@@ -19,12 +19,12 @@ plt.plot(L, VMOLB, 'o-', color='orange', label='$VMOL$ of Firm B')
 plt.plot(L, w, 'o-', color='green', label='Wage')
 plt.legend()
 plt.xlabel('Number of employees')
-plt.ylabel('Values')  # Assuming you might want a label for the y-axis as well
+plt.ylabel('Euros')  # Assuming you might want a label for the y-axis as well
 
 # Setting the grid
-plt.minorticks_on() # Enable minor ticks if needed
+#plt.minorticks_on() # Enable minor ticks if needed
 plt.grid(which='major', color='grey', linestyle='-', linewidth=0.5)
-plt.grid(which='minor', color='lightgrey', linestyle='--', linewidth=0.5, alpha=0.5)
+#plt.grid(which='minor', color='lightgrey', linestyle='--', linewidth=0.5, alpha=0.5)
 
 # Filter out np.nan values before finding min and max for y-axis ticks
 VMOLA_filtered = [x for x in VMOLA if not np.isnan(x)]
