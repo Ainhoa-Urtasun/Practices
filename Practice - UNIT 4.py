@@ -26,9 +26,15 @@ plt.minorticks_on() # Enable minor ticks if needed
 plt.grid(which='major', color='grey', linestyle='-', linewidth=0.5)
 plt.grid(which='minor', color='lightgrey', linestyle='--', linewidth=0.5, alpha=0.5)
 
+# Filter out np.nan values before finding min and max for y-axis ticks
+VMOLA_filtered = [x for x in VMOLA if not np.isnan(x)]
+VMOLB_filtered = [x for x in VMOLB if not np.isnan(x)]
+min_value = min(min(VMOLA_filtered), min(VMOLB_filtered), min(w))
+max_value = max(max(VMOLA_filtered), max(VMOLB_filtered), max(w))
+
 # Customize ticks to ensure they fall at every unit
 plt.xticks(np.arange(0, max(L)+1, 1.0))
-plt.yticks(np.arange(min(min(VMOLA), min(VMOLB), min(w)), max(max(VMOLA), max(VMOLB), max(w))+1, 10.0))
+plt.yticks(np.arange(min_value, max_value, max(w))+1, 10.0))
 
 # Show the plots
 plt.show()
