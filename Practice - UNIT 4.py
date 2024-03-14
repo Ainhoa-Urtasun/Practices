@@ -15,16 +15,16 @@ VMOLB = [10*x for x in MOLB]
 w = [50 for _ in range(11)]
 
 # Create subplots
-fig, axs = plt.subplots(1,1,figsize=(10,5))
+fig, ax = plt.subplots(1,1,figsize=(10,5))
 
 # Scatter plot
-axs[0].plot(L,VMOLA,'o-',color='blue',label='Firm A')
-axs[0].plot(L,VMOLB,'o-',color='orange',label='Firm B')
-axs[0].plot(L,w,'o-',color='green',label='Wage')
-axs[0].legend()
-axs[0].set_title('Value of marginal output of labor ($VMOL$)')
-axs[0].set_xlabel('Number of employees')
-axs[0].grid(True)  # Show grid
+ax.plot(L,VMOLA,'o-',color='blue',label='Firm A')
+ax.plot(L,VMOLB,'o-',color='orange',label='Firm B')
+ax.plot(L,w,'o-',color='green',label='Wage')
+ax.legend()
+ax.set_title('Value of marginal output of labor ($VMOL$)')
+ax.set_xlabel('Number of employees')
+ax.grid(True)  # Show grid
 
 # Adjust layout for better spacing
 plt.tight_layout()
