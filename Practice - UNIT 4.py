@@ -13,6 +13,9 @@ MOLB = [np.nan] + MOLB
 VMOLB = [3*x for x in MOLB]
 w = [50 for _ in range(11)]
 
+# Set figure size here
+plt.figure(figsize=(10,6))  # Increase the size of the figure
+
 # Scatter plot
 plt.plot(L, VMOLA, 'o-', color='blue', label='$VMOL$ of Firm A')
 plt.plot(L, VMOLB, 'o-', color='orange', label='$VMOL$ of Firm B')
@@ -29,12 +32,11 @@ plt.grid(which='major', color='grey', linestyle='-', linewidth=0.5)
 # Filter out np.nan values before finding min and max for y-axis ticks
 VMOLA_filtered = [x for x in VMOLA if not np.isnan(x)]
 VMOLB_filtered = [x for x in VMOLB if not np.isnan(x)]
-min_value = min(min(VMOLA_filtered), min(VMOLB_filtered), min(w))
 max_value = max(max(VMOLA_filtered), max(VMOLB_filtered), max(w))
 
 # Customize ticks to ensure they fall at every unit
 plt.xticks(np.arange(0, max(L)+1, 1.0))
-plt.yticks(np.arange(min_value, max_value, 5.0))
+plt.yticks(np.arange(0, max_value+5, 5.0))
 
 # Show the plots
 plt.show()
