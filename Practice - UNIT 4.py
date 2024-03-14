@@ -14,7 +14,7 @@ VMOLB = [3*x for x in MOLB]
 w = [50 for _ in range(11)]
 
 # Set figure size here
-plt.figure(figsize=(15,6))  # Increase the size of the figure
+plt.figure(figsize=(10,10))  # Increase the size of the figure
 
 # Scatter plot
 plt.plot(L, VMOLA, 'o-', color='blue', label='$VMOL$ of Firm A')
