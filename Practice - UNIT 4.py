@@ -34,7 +34,7 @@ max_value = max(max(VMOLA_filtered), max(VMOLB_filtered), max(w))
 
 # Customize ticks to ensure they fall at every unit
 plt.xticks(np.arange(0, max(L)+1, 1.0))
-plt.yticks(np.arange(min_value, max_value, max(w))+1, 10.0))
+plt.yticks(np.arange(min_value, max_value, max(w))+1, 10.0)
 
 # Show the plots
 plt.show()
