@@ -15,7 +15,7 @@ VMOLB = [3*x for x in MOLB]
 w = [50 for _ in range(11)]
 
 # Create subplots
-fig, ax = plt.subplots(1,1,figsize=(10,5))
+fig, ax = plt.subplots(1,1,figsize=(12,12))
 
 # Scatter plot
 ax.plot(L,VMOLA,'o-',color='blue',label='$VMOL$ of Firm A')
