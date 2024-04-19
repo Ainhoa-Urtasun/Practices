@@ -21,13 +21,15 @@ structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]
 data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
 mydata = data.reset_index()
 print(mydata)
-mydata = mydata[mydata.wstatus=='Employed persons']
+mydata = mydata[mydata.unit=='Percentage of total employment']
+mydata = mydata[mydata.s_adj=='Seasonally adjusted data, not calendar adjusted data']
+mydata = mydata[mydata['indic_em']=='Transition employment - unemployment']
 mydata = mydata[mydata.sex=='Total']
-mydata = mydata[mydata.age=='From 20 to 64 years']
-mydata = mydata[mydata.frequenc=='Usually']
-mydata = mydata[['geo','time',0]]
+mydata = mydata[mydata.time=='2023-Q1']
+mydata = mydata[['geo',0]]
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 mydata.rename(columns={0:'percentage'},inplace=True)
+print(mydata)
 
 world = geopandas.read_file('/content/Practices/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
