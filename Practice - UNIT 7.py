@@ -20,7 +20,6 @@ data = data.reindex(range(0,n),fill_value=0)
 structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
 data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
 mydata = data.reset_index()
-print(mydata)
 mydata = mydata[mydata.unit=='Percentage of total employment']
 mydata = mydata[mydata.s_adj=='Seasonally adjusted data, not calendar adjusted data']
 mydata = mydata[mydata['indic_em']=='Transition employment - unemployment']
@@ -29,7 +28,6 @@ mydata = mydata[mydata.time=='2023-Q1']
 mydata = mydata[['geo',0]]
 mydata.rename(columns={'geo':'ADMIN'},inplace=True)
 mydata.rename(columns={0:'Percentage'},inplace=True)
-print(mydata)
 
 world = geopandas.read_file('/content/Practices/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
@@ -38,5 +36,5 @@ mydata = mydata.merge(europe,on='ADMIN',how='right')
 mydata = geopandas.GeoDataFrame(mydata,geometry='geometry')
 fig,ax = plt.subplots(1,figsize=(10,10))
 mydata.plot(column='Percentage',alpha=0.8,cmap='Greens',ax=ax,legend=True)
-ax.set_title('Renewable energy sources in electricity, 2021')
+ax.set_title('Percentage of total employment, 2023-Q1')
 ax.axis('off')
